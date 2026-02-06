@@ -1,0 +1,62 @@
+ERROR - The object could not be loaded. Please check "auth_manager" key in "core" section. Current value: "airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager".
+Traceback (most recent call last):
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/configuration.py", line 1235, in getimport
+    return import_string(full_qualified_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/utils/module_loading.py", line 39, in import_string
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/providers/fab/auth_manager/fab_auth_manager.py", line 34, in <module>
+    from airflow.auth.managers.base_auth_manager import BaseAuthManager, ResourceMethod
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/auth/managers/base_auth_manager.py", line 31, in <module>
+    from airflow.models import DagModel
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/models/__init__.py", line 79, in __getattr__
+    val = import_string(f"{path}.{name}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/utils/module_loading.py", line 39, in import_string
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/models/dag.py", line 100, in <module>
+    from airflow.jobs.job import run_job
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/jobs/job.py", line 35, in <module>
+    from airflow.serialization.pydantic.job import JobPydantic
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/serialization/pydantic/job.py", line 23, in <module>
+    from airflow.utils.pydantic import BaseModel as BaseModelPydantic, ConfigDict
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/utils/pydantic.py", line 40, in <module>
+    from pydantic import BaseModel, ConfigDict, PlainSerializer, PlainValidator, ValidationInfo
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/pydantic/__init__.py", line 5, in <module>
+    from ._migration import getattr_migration
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/pydantic/_migration.py", line 4, in <module>
+    from pydantic.warnings import PydanticDeprecatedSince20
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/pydantic/warnings.py", line 5, in <module>
+    from .version import version_short
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/pydantic/version.py", line 7, in <module>
+    from pydantic_core import __version__ as __pydantic_core_version__
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/pydantic_core/__init__.py", line 6, in <module>
+    from typing_extensions import Sentinel
+ImportError: cannot import name 'Sentinel' from 'typing_extensions' (/home/wgeesey/airflow/lib/python3.12/site-packages/typing_extensions.py). Did you mean: '_Sentinel'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/cli/cli_parser.py", line 77, in <module>
+    auth_mgr = get_auth_manager_cls()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/www/extensions/init_auth_manager.py", line 37, in get_auth_manager_cls
+    auth_manager_cls = conf.getimport(section="core", key="auth_manager")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/configuration.py", line 1238, in getimport
+    raise AirflowConfigException(
+airflow.exceptions.AirflowConfigException: The object could not be loaded. Please check "auth_manager" key in "core" section. Current value: "airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager".
