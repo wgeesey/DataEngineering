@@ -1,39 +1,91 @@
-(airflow) wgeesey@DataEngineering:~$ airflow dags test test_mssql_connection 2025-01-01
+(airflow) wgeesey@DataEngineering:~$ airflow dags test test_mssql_conn 2025-01-01
 /home/wgeesey/airflow/lib/python3.12/site-packages/airflow/cli/commands/dag_command.py:48 UserWarning: Could not import graphviz. Rendering graph to the graphical format will not be possible.
-[2026-02-09T16:04:54.609+0000] {dagbag.py:588} INFO - Filling up the DagBag from /home/wgeesey/airflow/dags
-[2026-02-09T16:04:54.647+0000] {example_kubernetes_executor.py:39} WARNING - The example_kubernetes_executor example DAG requires the kubernetes provider. Please install it with: pip install apache-airflow[cncf.kubernetes]
-[2026-02-09T16:04:54.781+0000] {example_python_decorator.py:80} WARNING - The virtalenv_python example task requires virtualenv, please install it.
-[2026-02-09T16:04:54.783+0000] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
-[2026-02-09T16:04:54.861+0000] {tutorial_taskflow_api_virtualenv.py:29} WARNING - The tutorial_taskflow_api_virtualenv example DAG requires virtualenv, please install it.
-[2026-02-09T16:04:54.894+0000] {example_python_operator.py:93} WARNING - The virtalenv_python example task requires virtualenv, please install it.
-[2026-02-09T16:04:54.912+0000] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+[2026-02-09T16:26:26.177+0000] {dagbag.py:588} INFO - Filling up the DagBag from /home/wgeesey/airflow/dags
+[2026-02-09T16:26:26.221+0000] {example_kubernetes_executor.py:39} WARNING - The example_kubernetes_executor example DAG requires the kubernetes provider. Please install it with: pip install apache-airflow[cncf.kubernetes]
+[2026-02-09T16:26:26.362+0000] {example_python_decorator.py:80} WARNING - The virtalenv_python example task requires virtualenv, please install it.
+[2026-02-09T16:26:26.363+0000] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
+[2026-02-09T16:26:26.436+0000] {tutorial_taskflow_api_virtualenv.py:29} WARNING - The tutorial_taskflow_api_virtualenv example DAG requires virtualenv, please install it.
+[2026-02-09T16:26:26.466+0000] {example_python_operator.py:93} WARNING - The virtalenv_python example task requires virtualenv, please install it.
+[2026-02-09T16:26:26.487+0000] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
 Traceback (most recent call last):
   File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
     from kubernetes.client import models as k8s
 ModuleNotFoundError: No module named 'kubernetes'
-[2026-02-09T16:04:54.912+0000] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
-[2026-02-09T16:04:54.917+0000] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
-[2026-02-09T16:04:54.945+0000] {dag.py:4435} INFO - dagrun id: test_mssql_connection
-[2026-02-09T16:04:54.972+0000] {dag.py:4451} INFO - created dagrun <DagRun test_mssql_connection @ 2025-01-01 00:00:00+00:00: manual__2025-01-01T00:00:00+00:00, state:running, queued_at: None. externally triggered: False>
-[2026-02-09T16:04:54.990+0000] {dag.py:4396} INFO - [DAG TEST] starting task_id=test map_index=-1
-[2026-02-09T16:04:54.990+0000] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: test_mssql_connection.test manual__2025-01-01T00:00:00+00:00 [scheduled]>
-[2026-02-09T16:04:55.011+0000] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
-[2026-02-09 16:04:55,122] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='test_mssql_connection' AIRFLOW_CTX_TASK_ID='test' AIRFLOW_CTX_EXECUTION_DATE='2025-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-01T00:00:00+00:00'
-[2026-02-09T16:04:55.122+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='test_mssql_connection' AIRFLOW_CTX_TASK_ID='test' AIRFLOW_CTX_EXECUTION_DATE='2025-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-01T00:00:00+00:00'
+[2026-02-09T16:26:26.488+0000] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-02-09T16:26:26.495+0000] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
+[2026-02-09T16:26:26.498+0000] {cli.py:251} WARNING - Dag '\x1b[1mtest_mssql_conn\x1b[22m' not found in path /home/wgeesey/airflow/dags; trying path /home/wgeesey/airflow/dags
+[2026-02-09T16:26:26.499+0000] {dagbag.py:588} INFO - Filling up the DagBag from /home/wgeesey/airflow/dags
+[2026-02-09T16:26:26.518+0000] {example_kubernetes_executor.py:39} WARNING - The example_kubernetes_executor example DAG requires the kubernetes provider. Please install it with: pip install apache-airflow[cncf.kubernetes]
+[2026-02-09T16:26:26.571+0000] {example_python_decorator.py:80} WARNING - The virtalenv_python example task requires virtualenv, please install it.
+[2026-02-09T16:26:26.590+0000] {tutorial_taskflow_api_virtualenv.py:29} WARNING - The tutorial_taskflow_api_virtualenv example DAG requires virtualenv, please install it.
+[2026-02-09T16:26:26.618+0000] {example_python_operator.py:93} WARNING - The virtalenv_python example task requires virtualenv, please install it.
+[2026-02-09T16:26:26.630+0000] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-02-09T16:26:26.630+0000] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-02-09T16:26:26.636+0000] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
+Traceback (most recent call last):
+  File "/home/wgeesey/airflow/bin/airflow", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/__main__.py", line 62, in main
+    args.func(args)
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/utils/providers_configuration_loader.py", line 55, in wrapped_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/cli/commands/dag_command.py", line 620, in dag_test
+    dag = dag or get_dag(subdir=args.subdir, dag_id=args.dag_id)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/utils/cli.py", line 255, in get_dag
+    raise AirflowException(
+airflow.exceptions.AirflowException: Dag 'test_mssql_conn' could not be found; either it does not exist or it failed to parse.
+(airflow) wgeesey@DataEngineering:~$ airflow dags test test_mssql_conn 2025-01-01
+/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/cli/commands/dag_command.py:48 UserWarning: Could not import graphviz. Rendering graph to the graphical format will not be possible.
+[2026-02-09T16:27:25.606+0000] {dagbag.py:588} INFO - Filling up the DagBag from /home/wgeesey/airflow/dags
+[2026-02-09T16:27:25.649+0000] {example_kubernetes_executor.py:39} WARNING - The example_kubernetes_executor example DAG requires the kubernetes provider. Please install it with: pip install apache-airflow[cncf.kubernetes]
+[2026-02-09T16:27:25.783+0000] {example_python_decorator.py:80} WARNING - The virtalenv_python example task requires virtualenv, please install it.
+[2026-02-09T16:27:25.784+0000] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
+[2026-02-09T16:27:25.860+0000] {tutorial_taskflow_api_virtualenv.py:29} WARNING - The tutorial_taskflow_api_virtualenv example DAG requires virtualenv, please install it.
+[2026-02-09T16:27:25.896+0000] {example_python_operator.py:93} WARNING - The virtalenv_python example task requires virtualenv, please install it.
+[2026-02-09T16:27:25.918+0000] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-02-09T16:27:25.919+0000] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-02-09T16:27:25.926+0000] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
+[2026-02-09T16:27:25.943+0000] {dag.py:4435} INFO - dagrun id: test_mssql_conn
+[2026-02-09T16:27:25.954+0000] {dag.py:4451} INFO - created dagrun <DagRun test_mssql_conn @ 2025-01-01 00:00:00+00:00: manual__2025-01-01T00:00:00+00:00, state:running, queued_at: None. externally triggered: False>
+[2026-02-09T16:27:25.979+0000] {dag.py:4396} INFO - [DAG TEST] starting task_id=test map_index=-1
+[2026-02-09T16:27:25.979+0000] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: test_mssql_conn.test manual__2025-01-01T00:00:00+00:00 [scheduled]>
+[2026-02-09T16:27:26.066+0000] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
+[2026-02-09 16:27:26,096] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='test_mssql_conn' AIRFLOW_CTX_TASK_ID='test' AIRFLOW_CTX_EXECUTION_DATE='2025-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-01T00:00:00+00:00'
+[2026-02-09T16:27:26.096+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='test_mssql_conn' AIRFLOW_CTX_TASK_ID='test' AIRFLOW_CTX_EXECUTION_DATE='2025-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-01T00:00:00+00:00'
 Task instance is in running state
  Previous state of the Task instance: queued
 Current task name:test state:scheduled start_date:None
-Dag name:test_mssql_connection and current dag run status:running
-[2026-02-09T16:04:55.125+0000] {taskinstance.py:731} INFO - ::endgroup::
-[2026-02-09T16:04:55.143+0000] {base.py:84} INFO - Retrieving connection 'mssql_wideworld'
-[2026-02-09 16:04:57,147] {taskinstance.py:3311} ERROR - Task failed with exception
+Dag name:test_mssql_conn and current dag run status:running
+[2026-02-09T16:27:26.099+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-02-09T16:27:26.193+0000] {base.py:84} INFO - Retrieving connection 'mssql_wideworld'
+[2026-02-09 16:27:26,209] {taskinstance.py:3311} ERROR - Task failed with exception
 Traceback (most recent call last):
   File "src/pymssql/_pymssql.pyx", line 650, in pymssql._pymssql.connect
   File "src/pymssql/_mssql.pyx", line 2158, in pymssql._mssql.connect
   File "src/pymssql/_mssql.pyx", line 712, in pymssql._mssql.MSSQLConnection.__init__
   File "src/pymssql/_mssql.pyx", line 1884, in pymssql._mssql.maybe_raise_MSSQLDatabaseException
   File "src/pymssql/_mssql.pyx", line 1901, in pymssql._mssql.raise_MSSQLDatabaseException
-pymssql._mssql.MSSQLDatabaseException: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\n')
+pymssql._mssql.MSSQLDatabaseException: (18456, b"Login failed for user 'airflow_user'.DB-Lib error message 20018, severity 14:\nGeneral SQL Server error: Check messages from the SQL Server\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\n")
 
 During handling of the above exception, another exception occurred:
 
@@ -83,15 +135,15 @@ Traceback (most recent call last):
     return pymssql.connect(
            ^^^^^^^^^^^^^^^^
   File "src/pymssql/_pymssql.pyx", line 659, in pymssql._pymssql.connect
-pymssql.exceptions.OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\n')
-[2026-02-09T16:04:57.147+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+pymssql.exceptions.OperationalError: (18456, b"Login failed for user 'airflow_user'.DB-Lib error message 20018, severity 14:\nGeneral SQL Server error: Check messages from the SQL Server\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\n")
+[2026-02-09T16:27:26.209+0000] {taskinstance.py:3311} ERROR - Task failed with exception
 Traceback (most recent call last):
   File "src/pymssql/_pymssql.pyx", line 650, in pymssql._pymssql.connect
   File "src/pymssql/_mssql.pyx", line 2158, in pymssql._mssql.connect
   File "src/pymssql/_mssql.pyx", line 712, in pymssql._mssql.MSSQLConnection.__init__
   File "src/pymssql/_mssql.pyx", line 1884, in pymssql._mssql.maybe_raise_MSSQLDatabaseException
   File "src/pymssql/_mssql.pyx", line 1901, in pymssql._mssql.raise_MSSQLDatabaseException
-pymssql._mssql.MSSQLDatabaseException: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\n')
+pymssql._mssql.MSSQLDatabaseException: (18456, b"Login failed for user 'airflow_user'.DB-Lib error message 20018, severity 14:\nGeneral SQL Server error: Check messages from the SQL Server\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\n")
 
 During handling of the above exception, another exception occurred:
 
@@ -141,21 +193,21 @@ Traceback (most recent call last):
     return pymssql.connect(
            ^^^^^^^^^^^^^^^^
   File "src/pymssql/_pymssql.pyx", line 659, in pymssql._pymssql.connect
-pymssql.exceptions.OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\n')
+pymssql.exceptions.OperationalError: (18456, b"Login failed for user 'airflow_user'.DB-Lib error message 20018, severity 14:\nGeneral SQL Server error: Check messages from the SQL Server\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\n")
 Task instance in failure state
-Task start:None end:2026-02-09 16:04:57.152633+00:00 duration:None
-Task:<Task(_PythonDecoratedOperator): test> dag:<DAG: test_mssql_connection> dagrun:<DagRun test_mssql_connection @ 2025-01-01 00:00:00+00:00: manual__2025-01-01T00:00:00+00:00, state:running, queued_at: None. externally triggered: False>
-Failure caused by (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\n')
-[2026-02-09T16:04:57.153+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=test_mssql_connection, task_id=test, run_id=manual__2025-01-01T00:00:00+00:00, execution_date=20250101T000000, start_date=, end_date=20260209T160457
-[2026-02-09T16:04:57.165+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
-[2026-02-09T16:04:57.165+0000] {dag.py:3090} ERROR - Task failed; ti=<TaskInstance: test_mssql_connection.test manual__2025-01-01T00:00:00+00:00 [failed]>
+Task start:None end:2026-02-09 16:27:26.215006+00:00 duration:None
+Task:<Task(_PythonDecoratedOperator): test> dag:<DAG: test_mssql_conn> dagrun:<DagRun test_mssql_conn @ 2025-01-01 00:00:00+00:00: manual__2025-01-01T00:00:00+00:00, state:running, queued_at: None. externally triggered: False>
+Failure caused by (18456, b"Login failed for user 'airflow_user'.DB-Lib error message 20018, severity 14:\nGeneral SQL Server error: Check messages from the SQL Server\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\n")
+[2026-02-09T16:27:26.215+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=test_mssql_conn, task_id=test, run_id=manual__2025-01-01T00:00:00+00:00, execution_date=20250101T000000, start_date=, end_date=20260209T162726
+[2026-02-09T16:27:26.225+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-02-09T16:27:26.225+0000] {dag.py:3090} ERROR - Task failed; ti=<TaskInstance: test_mssql_conn.test manual__2025-01-01T00:00:00+00:00 [failed]>
 Traceback (most recent call last):
   File "src/pymssql/_pymssql.pyx", line 650, in pymssql._pymssql.connect
   File "src/pymssql/_mssql.pyx", line 2158, in pymssql._mssql.connect
   File "src/pymssql/_mssql.pyx", line 712, in pymssql._mssql.MSSQLConnection.__init__
   File "src/pymssql/_mssql.pyx", line 1884, in pymssql._mssql.maybe_raise_MSSQLDatabaseException
   File "src/pymssql/_mssql.pyx", line 1901, in pymssql._mssql.raise_MSSQLDatabaseException
-pymssql._mssql.MSSQLDatabaseException: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\n')
+pymssql._mssql.MSSQLDatabaseException: (18456, b"Login failed for user 'airflow_user'.DB-Lib error message 20018, severity 14:\nGeneral SQL Server error: Check messages from the SQL Server\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\n")
 
 During handling of the above exception, another exception occurred:
 
@@ -223,10 +275,10 @@ Traceback (most recent call last):
     return pymssql.connect(
            ^^^^^^^^^^^^^^^^
   File "src/pymssql/_pymssql.pyx", line 659, in pymssql._pymssql.connect
-pymssql.exceptions.OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (192.168.56.1)\nNet-Lib error during Connection refused (111)\n')
-[2026-02-09T16:04:57.172+0000] {dagrun.py:823} ERROR - Marking run <DagRun test_mssql_connection @ 2025-01-01 00:00:00+00:00: manual__2025-01-01T00:00:00+00:00, state:running, queued_at: None. externally triggered: False> failed
+pymssql.exceptions.OperationalError: (18456, b"Login failed for user 'airflow_user'.DB-Lib error message 20018, severity 14:\nGeneral SQL Server error: Check messages from the SQL Server\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (192.168.1.90)\n")
+[2026-02-09T16:27:26.232+0000] {dagrun.py:823} ERROR - Marking run <DagRun test_mssql_conn @ 2025-01-01 00:00:00+00:00: manual__2025-01-01T00:00:00+00:00, state:running, queued_at: None. externally triggered: False> failed
 Dag run  in failure state
-Dag information:test_mssql_connection Run id: manual__2025-01-01T00:00:00+00:00 external trigger: False
+Dag information:test_mssql_conn Run id: manual__2025-01-01T00:00:00+00:00 external trigger: False
 Failed with message: task_failure
-[2026-02-09T16:04:57.172+0000] {dagrun.py:905} INFO - DagRun Finished: dag_id=test_mssql_connection, execution_date=2025-01-01 00:00:00+00:00, run_id=manual__2025-01-01T00:00:00+00:00, run_start_date=2025-01-01 00:00:00+00:00, run_end_date=2026-02-09 16:04:57.172478+00:00, run_duration=34963497.172478, state=failed, external_trigger=False, run_type=manual, data_interval_start=2025-01-01 00:00:00+00:00, data_interval_end=2025-01-01 00:00:00+00:00, dag_hash=None
+[2026-02-09T16:27:26.232+0000] {dagrun.py:905} INFO - DagRun Finished: dag_id=test_mssql_conn, execution_date=2025-01-01 00:00:00+00:00, run_id=manual__2025-01-01T00:00:00+00:00, run_start_date=2025-01-01 00:00:00+00:00, run_end_date=2026-02-09 16:27:26.232829+00:00, run_duration=34964846.232829, state=failed, external_trigger=False, run_type=manual, data_interval_start=2025-01-01 00:00:00+00:00, data_interval_end=2025-01-01 00:00:00+00:00, dag_hash=None
 DagRun failed
