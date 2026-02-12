@@ -1,104 +1,39 @@
-6/02/12 13:40:01 INFO Utils: Successfully started service 'sparkDriver' on port 44007.
-26/02/12 13:40:01 INFO SparkEnv: Registering MapOutputTracker
-26/02/12 13:40:01 INFO SparkEnv: Registering BlockManagerMaster
-26/02/12 13:40:01 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
-26/02/12 13:40:01 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
-26/02/12 13:40:01 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
-26/02/12 13:40:01 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-f754eba0-0536-4c0b-8e9e-4be71c75cb2a
-26/02/12 13:40:01 INFO SparkEnv: Registering OutputCommitCoordinator
-26/02/12 13:40:01 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
-26/02/12 13:40:01 INFO Utils: Successfully started service 'SparkUI' on port 4040.
-26/02/12 13:40:01 INFO SecurityManager: Changing view acls to: wgeesey
-26/02/12 13:40:01 INFO SecurityManager: Changing modify acls to: wgeesey
-26/02/12 13:40:01 INFO SecurityManager: Changing view acls groups to: wgeesey
-26/02/12 13:40:01 INFO SecurityManager: Changing modify acls groups to: wgeesey
-26/02/12 13:40:01 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: wgeesey groups with view permissions: EMPTY; users with modify permissions: wgeesey; groups with modify permissions: EMPTY; RPC SSL disabled
-26/02/12 13:40:02 INFO Executor: Starting executor ID driver on host DataEngineering
-26/02/12 13:40:02 INFO Executor: OS info Linux, 6.17.0-14-generic, amd64
-26/02/12 13:40:02 INFO Executor: Java version 21.0.10
-26/02/12 13:40:02 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
-26/02/12 13:40:02 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@4c463998 for default.
-26/02/12 13:40:02 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 45443.
-26/02/12 13:40:02 INFO NettyBlockTransferService: Server created on DataEngineering:45443
-26/02/12 13:40:02 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
-26/02/12 13:40:02 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, DataEngineering, 45443, None)
-26/02/12 13:40:02 INFO BlockManagerMasterEndpoint: Registering block manager DataEngineering:45443 with 1048.8 MiB RAM, BlockManagerId(driver, DataEngineering, 45443, None)
-26/02/12 13:40:02 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, DataEngineering, 45443, None)
-26/02/12 13:40:02 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, DataEngineering, 45443, None)
-Reading CSV from: /opt/airflow/data/staging/orders.csv
-26/02/12 13:40:04 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
-26/02/12 13:40:04 INFO SharedState: Warehouse path is 'file:/home/wgeesey/spark-warehouse'.
-26/02/12 13:40:05 WARN FileStreamSink: Assume no metadata directory. Error while looking for metadata directory in the path: /opt/airflow/data/staging/orders.csv.
-java.io.FileNotFoundException: File /opt/airflow/data/staging/orders.csv does not exist
-	at org.apache.hadoop.fs.RawLocalFileSystem.deprecatedGetFileStatus(RawLocalFileSystem.java:917)
-	at org.apache.hadoop.fs.RawLocalFileSystem.getFileLinkStatusInternal(RawLocalFileSystem.java:1238)
-	at org.apache.hadoop.fs.RawLocalFileSystem.getFileStatus(RawLocalFileSystem.java:907)
-	at org.apache.hadoop.fs.FilterFileSystem.getFileStatus(FilterFileSystem.java:462)
-	at org.apache.spark.sql.execution.streaming.FileStreamSink$.hasMetadata(FileStreamSink.scala:56)
-	at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:381)
-	at org.apache.spark.sql.catalyst.analysis.ResolveDataSource.org$apache$spark$sql$catalyst$analysis$ResolveDataSource$$loadV1BatchSource(ResolveDataSource.scala:143)
-	at org.apache.spark.sql.catalyst.analysis.ResolveDataSource$$anonfun$apply$1.$anonfun$applyOrElse$2(ResolveDataSource.scala:61)
-	at scala.Option.getOrElse(Option.scala:201)
-	at org.apache.spark.sql.catalyst.analysis.ResolveDataSource$$anonfun$apply$1.applyOrElse(ResolveDataSource.scala:61)
-	at org.apache.spark.sql.catalyst.analysis.ResolveDataSource$$anonfun$apply$1.applyOrElse(ResolveDataSource.scala:45)
-	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.$anonfun$resolveOperatorsUpWithPruning$3(AnalysisHelper.scala:139)
-	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:86)
-	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.$anonfun$resolveOperatorsUpWithPruning$1(AnalysisHelper.scala:139)
-	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.allowInvokingTransformsInAnalyzer(AnalysisHelper.scala:416)
-	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.resolveOperatorsUpWithPruning(AnalysisHelper.scala:135)
-	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.resolveOperatorsUpWithPruning$(AnalysisHelper.scala:131)
-	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.resolveOperatorsUpWithPruning(LogicalPlan.scala:37)
-	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.resolveOperatorsUp(AnalysisHelper.scala:112)
-	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.resolveOperatorsUp$(AnalysisHelper.scala:111)
-	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.resolveOperatorsUp(LogicalPlan.scala:37)
-	at org.apache.spark.sql.catalyst.analysis.ResolveDataSource.apply(ResolveDataSource.scala:45)
-	at org.apache.spark.sql.catalyst.analysis.ResolveDataSource.apply(ResolveDataSource.scala:43)
-	at org.apache.spark.sql.catalyst.rules.RuleExecutor.$anonfun$execute$2(RuleExecutor.scala:242)
-	at scala.collection.LinearSeqOps.foldLeft(LinearSeq.scala:183)
-	at scala.collection.LinearSeqOps.foldLeft$(LinearSeq.scala:179)
-	at scala.collection.immutable.List.foldLeft(List.scala:79)
-	at org.apache.spark.sql.catalyst.rules.RuleExecutor.$anonfun$execute$1(RuleExecutor.scala:239)
-	at org.apache.spark.sql.catalyst.rules.RuleExecutor.$anonfun$execute$1$adapted(RuleExecutor.scala:231)
-	at scala.collection.immutable.List.foreach(List.scala:334)
-	at org.apache.spark.sql.catalyst.rules.RuleExecutor.execute(RuleExecutor.scala:231)
-	at org.apache.spark.sql.catalyst.analysis.Analyzer.org$apache$spark$sql$catalyst$analysis$Analyzer$$executeSameContext(Analyzer.scala:340)
-	at org.apache.spark.sql.catalyst.analysis.Analyzer.$anonfun$execute$1(Analyzer.scala:336)
-	at org.apache.spark.sql.catalyst.analysis.AnalysisContext$.withNewAnalysisContext(Analyzer.scala:234)
-	at org.apache.spark.sql.catalyst.analysis.Analyzer.execute(Analyzer.scala:336)
-	at org.apache.spark.sql.catalyst.analysis.Analyzer.execute(Analyzer.scala:299)
-	at org.apache.spark.sql.catalyst.rules.RuleExecutor.$anonfun$executeAndTrack$1(RuleExecutor.scala:201)
-	at org.apache.spark.sql.catalyst.QueryPlanningTracker$.withTracker(QueryPlanningTracker.scala:89)
-	at org.apache.spark.sql.catalyst.rules.RuleExecutor.executeAndTrack(RuleExecutor.scala:201)
-	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.resolveInFixedPoint(HybridAnalyzer.scala:190)
-	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.$anonfun$apply$1(HybridAnalyzer.scala:76)
-	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.withTrackedAnalyzerBridgeState(HybridAnalyzer.scala:111)
-	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.apply(HybridAnalyzer.scala:71)
-	at org.apache.spark.sql.catalyst.analysis.Analyzer.$anonfun$executeAndCheck$1(Analyzer.scala:330)
-	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.markInAnalyzer(AnalysisHelper.scala:423)
-	at org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:330)
-	at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyAnalyzed$2(QueryExecution.scala:110)
-	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:148)
-	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$2(QueryExecution.scala:278)
-	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:654)
-	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:278)
-	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
-	at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:277)
-	at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyAnalyzed$1(QueryExecution.scala:110)
-	at scala.util.Try$.apply(Try.scala:217)
-	at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1378)
-	at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
-	at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
-	at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
-	at org.apache.spark.sql.execution.QueryExecution.analyzed(QueryExecution.scala:121)
-	at org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:80)
-	at org.apache.spark.sql.classic.Dataset$.$anonfun$ofRows$1(Dataset.scala:115)
-	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
-	at org.apache.spark.sql.classic.Dataset$.ofRows(Dataset.scala:113)
-	at org.apache.spark.sql.classic.DataFrameReader.load(DataFrameReader.scala:109)
-	at org.apache.spark.sql.classic.DataFrameReader.load(DataFrameReader.scala:58)
-	at org.apache.spark.sql.DataFrameReader.csv(DataFrameReader.scala:392)
-	at org.apache.spark.sql.classic.DataFrameReader.csv(DataFrameReader.scala:259)
-	at org.apache.spark.sql.classic.DataFrameReader.csv(DataFrameReader.scala:58)
+Impl.java:0, took 169.622027 ms
+root
+ |-- order_id: integer (nullable = true)
+ |-- order_date: date (nullable = true)
+ |-- customer_name: string (nullable = true)
+ |-- quantity: integer (nullable = true)
+ |-- unit_price: double (nullable = true)
+
+Writing to:  s3a://my-first-s3-data-lake/WWI/
+Traceback (most recent call last):
+  File "/home/wgeesey/airflow/dags/spark_jobs/transform_orders.py", line 65, in <module>
+    main()
+  File "/home/wgeesey/airflow/dags/spark_jobs/transform_orders.py", line 59, in main
+    .parquet(args.output_path)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py", line 2003, in parquet
+  File "/opt/spark/python/lib/py4j-0.10.9.9-src.zip/py4j/java_gateway.py", line 1362, in __call__
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 282, in deco
+  File "/opt/spark/python/lib/py4j-0.10.9.9-src.zip/py4j/protocol.py", line 327, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling o63.parquet.
+: java.lang.RuntimeException: java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.s3a.S3AFileSystem not found
+	at org.apache.hadoop.conf.Configuration.getClass(Configuration.java:2737)
+	at org.apache.hadoop.fs.FileSystem.getFileSystemClass(FileSystem.java:3569)
+	at org.apache.hadoop.fs.FileSystem.createFileSystem(FileSystem.java:3612)
+	at org.apache.hadoop.fs.FileSystem.access$300(FileSystem.java:172)
+	at org.apache.hadoop.fs.FileSystem$Cache.getInternal(FileSystem.java:3716)
+	at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:3667)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:557)
+	at org.apache.hadoop.fs.Path.getFileSystem(Path.java:366)
+	at org.apache.spark.sql.execution.datasources.DataSource.makeQualified(DataSource.scala:125)
+	at org.apache.spark.sql.execution.datasources.DataSource.planForWritingFileFormat(DataSource.scala:468)
+	at org.apache.spark.sql.execution.datasources.DataSource.planForWriting(DataSource.scala:554)
+	at org.apache.spark.sql.classic.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:273)
+	at org.apache.spark.sql.classic.DataFrameWriter.saveInternal(DataFrameWriter.scala:241)
+	at org.apache.spark.sql.classic.DataFrameWriter.save(DataFrameWriter.scala:118)
+	at org.apache.spark.sql.DataFrameWriter.parquet(DataFrameWriter.scala:369)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:75)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:52)
@@ -111,28 +46,22 @@ java.io.FileNotFoundException: File /opt/airflow/data/staging/orders.csv does no
 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:184)
 	at py4j.ClientServerConnection.run(ClientServerConnection.java:108)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-Traceback (most recent call last):
-  File "/home/wgeesey/airflow/dags/spark_jobs/transform_orders.py", line 65, in <module>
-    main()
-  File "/home/wgeesey/airflow/dags/spark_jobs/transform_orders.py", line 25, in main
-    df = spark.read.csv(
-         ^^^^^^^^^^^^^^^
-  File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py", line 838, in csv
-  File "/opt/spark/python/lib/py4j-0.10.9.9-src.zip/py4j/java_gateway.py", line 1362, in __call__
-  File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 288, in deco
-pyspark.errors.exceptions.captured.AnalysisException: [PATH_NOT_FOUND] Path does not exist: file:/opt/airflow/data/staging/orders.csv. SQLSTATE: 42K03
-26/02/12 13:40:06 INFO SparkContext: Invoking stop() from shutdown hook
-26/02/12 13:40:06 INFO SparkContext: SparkContext is stopping with exitCode 0 from run at Executors.java:572.
-26/02/12 13:40:06 INFO SparkUI: Stopped Spark web UI at http://DataEngineering:4040
-26/02/12 13:40:06 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
-26/02/12 13:40:06 INFO MemoryStore: MemoryStore started with capacity 1048.8 MiB
-26/02/12 13:40:06 INFO MemoryStore: MemoryStore cleared
-26/02/12 13:40:06 INFO BlockManager: BlockManager stopped
-26/02/12 13:40:06 INFO BlockManagerMaster: BlockManagerMaster stopped
-26/02/12 13:40:06 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
-26/02/12 13:40:06 INFO SparkContext: Successfully stopped SparkContext
-26/02/12 13:40:06 INFO ShutdownHookManager: Shutdown hook called
-26/02/12 13:40:06 INFO ShutdownHookManager: Deleting directory /tmp/artifacts-9f956f25-3e14-4d62-a5fb-e4a250c6225c
-26/02/12 13:40:06 INFO ShutdownHookManager: Deleting directory /tmp/spark-95ba6182-6e4e-492a-b579-f8ceae1fdc0f
-26/02/12 13:40:06 INFO ShutdownHookManager: Deleting directory /tmp/spark-0b8c7283-4b44-4684-b459-9e2f679e2264
-26/02/12 13:40:06 INFO ShutdownHookManager: Deleting directory /tmp/spark-0b8c7283-4b44-4684-b459-9e2f679e2264/pyspark-00d09465-8b8c-45c8-a570-8fe2c8b38856
+Caused by: java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.s3a.S3AFileSystem not found
+	at org.apache.hadoop.conf.Configuration.getClassByName(Configuration.java:2641)
+	at org.apache.hadoop.conf.Configuration.getClass(Configuration.java:2735)
+	... 26 more
+
+26/02/12 13:43:22 INFO SparkContext: Invoking stop() from shutdown hook
+26/02/12 13:43:22 INFO SparkContext: SparkContext is stopping with exitCode 0 from run at Executors.java:572.
+26/02/12 13:43:22 INFO SparkUI: Stopped Spark web UI at http://DataEngineering:4040
+26/02/12 13:43:22 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/02/12 13:43:22 INFO MemoryStore: MemoryStore cleared
+26/02/12 13:43:22 INFO BlockManager: BlockManager stopped
+26/02/12 13:43:22 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/02/12 13:43:22 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/02/12 13:43:22 INFO SparkContext: Successfully stopped SparkContext
+26/02/12 13:43:22 INFO ShutdownHookManager: Shutdown hook called
+26/02/12 13:43:22 INFO ShutdownHookManager: Deleting directory /tmp/spark-d613e855-97e7-4500-adfe-ad1ec7c93c46
+26/02/12 13:43:22 INFO ShutdownHookManager: Deleting directory /tmp/spark-ded87eb6-d4ed-413a-b3a2-a6b14afc455f
+26/02/12 13:43:22 INFO ShutdownHookManager: Deleting directory /tmp/artifacts-3c434c84-73ba-4075-beec-921d41d99738
+26/02/12 13:43:22 INFO ShutdownHookManager: Deleting directory /tmp/spark-d613e855-97e7-4500-adfe-ad1ec7c93c46/pyspark-5e97ea53-f221-4e6f-9f47-745361cddef1
