@@ -1,0 +1,76 @@
+26/02/12 13:32:59 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: wgeesey groups with view permissions: EMPTY; users with modify permissions: wgeesey; groups with modify permissions: EMPTY; RPC SSL disabled
+26/02/12 13:32:59 INFO Utils: Successfully started service 'sparkDriver' on port 40551.
+26/02/12 13:32:59 ERROR SparkContext: Error initializing SparkContext.
+java.lang.ClassNotFoundException: org.apache.spark.serializer/KryoSerializer
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:536)
+	at java.base/java.lang.Class.forName(Class.java:515)
+	at org.apache.spark.util.SparkClassUtils.classForName(SparkClassUtils.scala:41)
+	at org.apache.spark.util.SparkClassUtils.classForName$(SparkClassUtils.scala:36)
+	at org.apache.spark.util.Utils$.classForName(Utils.scala:99)
+	at org.apache.spark.util.Utils$.instantiateSerializerOrShuffleManager(Utils.scala:2579)
+	at org.apache.spark.util.Utils$.instantiateSerializerFromConf(Utils.scala:2603)
+	at org.apache.spark.SparkEnv$.create(SparkEnv.scala:358)
+	at org.apache.spark.SparkEnv$.createDriverEnv(SparkEnv.scala:283)
+	at org.apache.spark.SparkContext.createSparkEnv(SparkContext.scala:294)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:495)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:59)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:75)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:53)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:184)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+26/02/12 13:32:59 INFO SparkContext: SparkContext is stopping with exitCode 0 from JavaSparkContext at NativeConstructorAccessorImpl.java:0.
+26/02/12 13:33:00 INFO SparkContext: Successfully stopped SparkContext
+Traceback (most recent call last):
+  File "/home/wgeesey/airflow/dags/spark_jobs/transform_orders.py", line 65, in <module>
+    main()
+  File "/home/wgeesey/airflow/dags/spark_jobs/transform_orders.py", line 19, in main
+    .getOrCreate()
+     ^^^^^^^^^^^^^
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/session.py", line 556, in getOrCreate
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/core/context.py", line 523, in getOrCreate
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/core/context.py", line 207, in __init__
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/core/context.py", line 300, in _do_init
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/core/context.py", line 429, in _initialize_context
+  File "/opt/spark/python/lib/py4j-0.10.9.9-src.zip/py4j/java_gateway.py", line 1627, in __call__
+  File "/opt/spark/python/lib/py4j-0.10.9.9-src.zip/py4j/protocol.py", line 327, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: java.lang.ClassNotFoundException: org.apache.spark.serializer/KryoSerializer
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:536)
+	at java.base/java.lang.Class.forName(Class.java:515)
+	at org.apache.spark.util.SparkClassUtils.classForName(SparkClassUtils.scala:41)
+	at org.apache.spark.util.SparkClassUtils.classForName$(SparkClassUtils.scala:36)
+	at org.apache.spark.util.Utils$.classForName(Utils.scala:99)
+	at org.apache.spark.util.Utils$.instantiateSerializerOrShuffleManager(Utils.scala:2579)
+	at org.apache.spark.util.Utils$.instantiateSerializerFromConf(Utils.scala:2603)
+	at org.apache.spark.SparkEnv$.create(SparkEnv.scala:358)
+	at org.apache.spark.SparkEnv$.createDriverEnv(SparkEnv.scala:283)
+	at org.apache.spark.SparkContext.createSparkEnv(SparkContext.scala:294)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:495)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:59)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:75)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:53)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:184)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+26/02/12 13:33:00 INFO ShutdownHookManager: Shutdown hook called
+26/02/12 13:33:00 INFO ShutdownHookManager: Deleting directory /tmp/spark-c1c22e06-0b66-4c35-9826-a49e521b702a
