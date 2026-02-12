@@ -1,4 +1,38 @@
-Impl.java:0, took 169.622027 ms
+mpl.java:0) finished in 403 ms
+26/02/12 13:51:36 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+26/02/12 13:51:36 INFO TaskSchedulerImpl: Canceling stage 0
+26/02/12 13:51:36 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+26/02/12 13:51:36 INFO DAGScheduler: Job 0 finished: csv at NativeMethodAccessorImpl.java:0, took 450.69998 ms
+26/02/12 13:51:36 INFO CodeGenerator: Code generated in 11.777973 ms
+26/02/12 13:51:36 INFO FileSourceStrategy: Pushed Filters: 
+26/02/12 13:51:36 INFO FileSourceStrategy: Post-Scan Filters: Set()
+26/02/12 13:51:36 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 215.4 KiB, free 1048.3 MiB)
+26/02/12 13:51:36 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 38.7 KiB, free 1048.3 MiB)
+26/02/12 13:51:36 INFO SparkContext: Created broadcast 2 from csv at NativeMethodAccessorImpl.java:0
+26/02/12 13:51:36 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+26/02/12 13:51:36 INFO SparkContext: Starting job: csv at NativeMethodAccessorImpl.java:0
+26/02/12 13:51:36 INFO DAGScheduler: Got job 1 (csv at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/02/12 13:51:36 INFO DAGScheduler: Final stage: ResultStage 1 (csv at NativeMethodAccessorImpl.java:0)
+26/02/12 13:51:36 INFO DAGScheduler: Parents of final stage: List()
+26/02/12 13:51:36 INFO DAGScheduler: Missing parents: List()
+26/02/12 13:51:36 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[9] at csv at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/02/12 13:51:36 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 23.0 KiB, free 1048.3 MiB)
+26/02/12 13:51:36 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 10.5 KiB, free 1048.3 MiB)
+26/02/12 13:51:36 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1676
+26/02/12 13:51:36 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[9] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/02/12 13:51:36 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+26/02/12 13:51:36 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (DataEngineering,executor driver, partition 0, PROCESS_LOCAL, 10246 bytes) 
+26/02/12 13:51:36 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+26/02/12 13:51:36 INFO CodeGenerator: Code generated in 7.315181 ms
+26/02/12 13:51:36 INFO FileScanRDD: Reading File path: file:///home/wgeesey/airflow/data/staging/orders.csv, range: 0-2498, partition values: [empty row]
+26/02/12 13:51:36 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1590 bytes result sent to driver
+26/02/12 13:51:36 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 100 ms on DataEngineering (executor driver) (1/1)
+26/02/12 13:51:36 INFO DAGScheduler: ResultStage 1 (csv at NativeMethodAccessorImpl.java:0) finished in 138 ms
+26/02/12 13:51:36 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+26/02/12 13:51:36 INFO TaskSchedulerImpl: Removed TaskSet 1.0 whose tasks have all completed, from pool 
+26/02/12 13:51:36 INFO TaskSchedulerImpl: Canceling stage 1
+26/02/12 13:51:36 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+26/02/12 13:51:36 INFO DAGScheduler: Job 1 finished: csv at NativeMethodAccessorImpl.java:0, took 142.780413 ms
 root
  |-- order_id: integer (nullable = true)
  |-- order_date: date (nullable = true)
@@ -51,17 +85,17 @@ Caused by: java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.s3a.S3AF
 	at org.apache.hadoop.conf.Configuration.getClass(Configuration.java:2735)
 	... 26 more
 
-26/02/12 13:43:22 INFO SparkContext: Invoking stop() from shutdown hook
-26/02/12 13:43:22 INFO SparkContext: SparkContext is stopping with exitCode 0 from run at Executors.java:572.
-26/02/12 13:43:22 INFO SparkUI: Stopped Spark web UI at http://DataEngineering:4040
-26/02/12 13:43:22 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
-26/02/12 13:43:22 INFO MemoryStore: MemoryStore cleared
-26/02/12 13:43:22 INFO BlockManager: BlockManager stopped
-26/02/12 13:43:22 INFO BlockManagerMaster: BlockManagerMaster stopped
-26/02/12 13:43:22 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
-26/02/12 13:43:22 INFO SparkContext: Successfully stopped SparkContext
-26/02/12 13:43:22 INFO ShutdownHookManager: Shutdown hook called
-26/02/12 13:43:22 INFO ShutdownHookManager: Deleting directory /tmp/spark-d613e855-97e7-4500-adfe-ad1ec7c93c46
-26/02/12 13:43:22 INFO ShutdownHookManager: Deleting directory /tmp/spark-ded87eb6-d4ed-413a-b3a2-a6b14afc455f
-26/02/12 13:43:22 INFO ShutdownHookManager: Deleting directory /tmp/artifacts-3c434c84-73ba-4075-beec-921d41d99738
-26/02/12 13:43:22 INFO ShutdownHookManager: Deleting directory /tmp/spark-d613e855-97e7-4500-adfe-ad1ec7c93c46/pyspark-5e97ea53-f221-4e6f-9f47-745361cddef1
+26/02/12 13:51:36 INFO SparkContext: Invoking stop() from shutdown hook
+26/02/12 13:51:36 INFO SparkContext: SparkContext is stopping with exitCode 0 from run at Executors.java:572.
+26/02/12 13:51:36 INFO SparkUI: Stopped Spark web UI at http://DataEngineering:4040
+26/02/12 13:51:36 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/02/12 13:51:36 INFO MemoryStore: MemoryStore cleared
+26/02/12 13:51:36 INFO BlockManager: BlockManager stopped
+26/02/12 13:51:36 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/02/12 13:51:36 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/02/12 13:51:36 INFO SparkContext: Successfully stopped SparkContext
+26/02/12 13:51:36 INFO ShutdownHookManager: Shutdown hook called
+26/02/12 13:51:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-db935e8c-b623-44ea-9067-676382e53ff1
+26/02/12 13:51:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-db935e8c-b623-44ea-9067-676382e53ff1/pyspark-2dee599a-cc31-46ae-94d7-29018d9be433
+26/02/12 13:51:36 INFO ShutdownHookManager: Deleting directory /tmp/spark-da498429-3bcf-4748-b69c-7601d6de62fb
+26/02/12 13:51:36 INFO ShutdownHookManager: Deleting directory /tmp/artifacts-0cb2979a-9cae-4c8f-99b5-8bb7e811db2e
