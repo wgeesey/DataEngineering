@@ -1,36 +1,53 @@
-WARNING: Using incubator modules: jdk.incubator.vector
-:: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
-Ivy Default Cache set to: /home/wgeesey/.ivy2.5.2/cache
-The jars for the packages stored in: /home/wgeesey/.ivy2.5.2/jars
-org.apache.hadoop#hadoop-aws added as a dependency
-:: resolving dependencies :: org.apache.spark#spark-submit-parent-ab13da8b-9db3-4be0-a33e-fc4b7cd94c53;1.0
-	confs: [default]
-	found org.apache.hadoop#hadoop-aws;3.3.6 in central
-	found com.amazonaws#aws-java-sdk-bundle;1.12.367 in central
-	found org.wildfly.openssl#wildfly-openssl;1.1.3.Final in central
-downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.6/hadoop-aws-3.3.6.jar ...
-	[SUCCESSFUL ] org.apache.hadoop#hadoop-aws;3.3.6!hadoop-aws.jar (127ms)
-downloading https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.367/aws-java-sdk-bundle-1.12.367.jar ...
-	[SUCCESSFUL ] com.amazonaws#aws-java-sdk-bundle;1.12.367!aws-java-sdk-bundle.jar (4770ms)
-downloading https://repo1.maven.org/maven2/org/wildfly/openssl/wildfly-openssl/1.1.3.Final/wildfly-openssl-1.1.3.Final.jar ...
-	[SUCCESSFUL ] org.wildfly.openssl#wildfly-openssl;1.1.3.Final!wildfly-openssl.jar (74ms)
-:: resolution report :: resolve 2384ms :: artifacts dl 4977ms
-	:: modules in use:
-	com.amazonaws#aws-java-sdk-bundle;1.12.367 from central in [default]
-	org.apache.hadoop#hadoop-aws;3.3.6 from central in [default]
-	org.wildfly.openssl#wildfly-openssl;1.1.3.Final from central in [default]
-	---------------------------------------------------------------------
-	|                  |            modules            ||   artifacts   |
-	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
-	---------------------------------------------------------------------
-	|      default     |   3   |   3   |   3   |   0   ||   3   |   3   |
-	---------------------------------------------------------------------
-:: retrieving :: org.apache.spark#spark-submit-parent-ab13da8b-9db3-4be0-a33e-fc4b7cd94c53
-	confs: [default]
-	3 artifacts copied, 0 already retrieved (304497kB/256ms)
-26/02/12 13:55:19 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-usage: transform_orders.py [-h] --input_path INPUT_PATH --output_path
-                           OUTPUT_PATH
-transform_orders.py: error: the following arguments are required: --input_path
-26/02/12 13:55:20 INFO ShutdownHookManager: Shutdown hook called
-26/02/12 13:55:20 INFO ShutdownHookManager: Deleting directory /tmp/spark-073eb514-7c96-48c5-a90b-c7dd072e4118
+ 1 (MapPartitionsRDD[9] at csv at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/02/12 13:58:47 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+26/02/12 13:58:47 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (DataEngineering,executor driver, partition 0, PROCESS_LOCAL, 11216 bytes) 
+26/02/12 13:58:47 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+26/02/12 13:58:47 INFO CodeGenerator: Code generated in 8.062453 ms
+26/02/12 13:58:47 INFO FileScanRDD: Reading File path: file:///home/wgeesey/airflow/data/staging/orders.csv, range: 0-2498, partition values: [empty row]
+26/02/12 13:58:47 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1547 bytes result sent to driver
+26/02/12 13:58:47 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 68 ms on DataEngineering (executor driver) (1/1)
+26/02/12 13:58:47 INFO TaskSchedulerImpl: Removed TaskSet 1.0 whose tasks have all completed, from pool 
+26/02/12 13:58:47 INFO DAGScheduler: ResultStage 1 (csv at NativeMethodAccessorImpl.java:0) finished in 101 ms
+26/02/12 13:58:47 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+26/02/12 13:58:47 INFO TaskSchedulerImpl: Canceling stage 1
+26/02/12 13:58:47 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+26/02/12 13:58:47 INFO DAGScheduler: Job 1 finished: csv at NativeMethodAccessorImpl.java:0, took 108.681995 ms
+root
+ |-- order_id: integer (nullable = true)
+ |-- order_date: date (nullable = true)
+ |-- customer_name: string (nullable = true)
+ |-- quantity: integer (nullable = true)
+ |-- unit_price: double (nullable = true)
+
+Writing to:  s3a://my-first-data-lake/WWI/
+26/02/12 13:58:48 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+26/02/12 13:58:48 INFO MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+26/02/12 13:58:48 INFO MetricsSystemImpl: s3a-file-system metrics system started
+26/02/12 13:58:48 INFO MetricsSystemImpl: Stopping s3a-file-system metrics system...
+26/02/12 13:58:48 INFO MetricsSystemImpl: s3a-file-system metrics system stopped.
+26/02/12 13:58:48 INFO MetricsSystemImpl: s3a-file-system metrics system shutdown complete.
+26/02/12 13:58:48 WARN FileSystem: Failed to initialize filesystem s3a://my-first-data-lake/WWI: java.lang.NumberFormatException: For input string: "60s"
+Traceback (most recent call last):
+  File "/home/wgeesey/airflow/dags/spark_jobs/transform_orders.py", line 65, in <module>
+    main()
+  File "/home/wgeesey/airflow/dags/spark_jobs/transform_orders.py", line 59, in main
+    .parquet(args.output_path)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py", line 2003, in parquet
+  File "/opt/spark/python/lib/py4j-0.10.9.9-src.zip/py4j/java_gateway.py", line 1362, in __call__
+  File "/opt/spark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 288, in deco
+pyspark.errors.exceptions.captured.NumberFormatException: For input string: "60s"
+26/02/12 13:58:48 INFO SparkContext: Invoking stop() from shutdown hook
+26/02/12 13:58:48 INFO SparkContext: SparkContext is stopping with exitCode 0 from run at Executors.java:572.
+26/02/12 13:58:48 INFO SparkUI: Stopped Spark web UI at http://DataEngineering:4040
+26/02/12 13:58:48 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/02/12 13:58:48 INFO MemoryStore: MemoryStore cleared
+26/02/12 13:58:48 INFO BlockManager: BlockManager stopped
+26/02/12 13:58:48 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/02/12 13:58:48 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/02/12 13:58:48 INFO SparkContext: Successfully stopped SparkContext
+26/02/12 13:58:48 INFO ShutdownHookManager: Shutdown hook called
+26/02/12 13:58:48 INFO ShutdownHookManager: Deleting directory /tmp/spark-14843bf5-d152-4458-a4af-e1c25da9938d/pyspark-0e2af0a6-2b3f-4289-8ea0-5717233af803
+26/02/12 13:58:48 INFO ShutdownHookManager: Deleting directory /tmp/spark-14843bf5-d152-4458-a4af-e1c25da9938d
+26/02/12 13:58:48 INFO ShutdownHookManager: Deleting directory /tmp/spark-b0cd4342-ae06-48d4-97d2-05bb7db4c987
+26/02/12 13:58:48 INFO ShutdownHookManager: Deleting directory /tmp/artifacts-ca811408-9fe4-4c95-9e09-3dad2015f2fb
