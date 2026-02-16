@@ -1,13 +1,13 @@
 DataEngineering
  ▶ Log message source details
-[2026-02-16, 17:15:44 UTC] {local_task_job_runner.py:123} ▶ Pre task execution logs
-[2026-02-16, 17:15:44 UTC] {base.py:84} INFO - Retrieving connection 'spark_default'
-[2026-02-16, 17:15:44 UTC] {spark_submit.py:473} INFO - Spark-Submit cmd: spark-submit --master local[*] --name arrow-spark --deploy-mode client home/airflow/dags/spark_jobs/transform_orders.py --input_path ~/airflow/data/staging/orders.csv --output_path s3a://my-first-s3-data-lake/WWI/
-[2026-02-16, 17:15:45 UTC] {spark_submit.py:634} INFO - WARNING: Using incubator modules: jdk.incubator.vector
-[2026-02-16, 17:15:47 UTC] {spark_submit.py:634} INFO - python3: can't open file '/home/wgeesey/home/airflow/dags/spark_jobs/transform_orders.py': [Errno 2] No such file or directory
-[2026-02-16, 17:15:47 UTC] {spark_submit.py:634} INFO - 26/02/16 17:15:47 INFO ShutdownHookManager: Shutdown hook called
-[2026-02-16, 17:15:47 UTC] {spark_submit.py:634} INFO - 26/02/16 17:15:47 INFO ShutdownHookManager: Deleting directory /tmp/spark-b9a2397c-0712-410f-9fe7-ca43b87890ed
-[2026-02-16, 17:15:47 UTC] {taskinstance.py:3311} ERROR - Task failed with exception
+[2026-02-16, 17:18:45 UTC] {local_task_job_runner.py:123} ▶ Pre task execution logs
+[2026-02-16, 17:18:45 UTC] {base.py:84} INFO - Retrieving connection 'spark_default'
+[2026-02-16, 17:18:45 UTC] {spark_submit.py:473} INFO - Spark-Submit cmd: spark-submit --master local[*] --name arrow-spark --deploy-mode client /home/airflow/dags/spark_jobs/transform_orders.py --input_path ~/airflow/data/staging/orders.csv --output_path s3a://my-first-s3-data-lake/WWI/
+[2026-02-16, 17:18:45 UTC] {spark_submit.py:634} INFO - WARNING: Using incubator modules: jdk.incubator.vector
+[2026-02-16, 17:18:47 UTC] {spark_submit.py:634} INFO - python3: can't open file '/home/airflow/dags/spark_jobs/transform_orders.py': [Errno 2] No such file or directory
+[2026-02-16, 17:18:47 UTC] {spark_submit.py:634} INFO - 26/02/16 17:18:47 INFO ShutdownHookManager: Shutdown hook called
+[2026-02-16, 17:18:47 UTC] {spark_submit.py:634} INFO - 26/02/16 17:18:47 INFO ShutdownHookManager: Deleting directory /tmp/spark-2c39d8c8-de38-4d66-93dc-1a29dc716dd5
+[2026-02-16, 17:18:47 UTC] {taskinstance.py:3311} ERROR - Task failed with exception
 Traceback (most recent call last):
   File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
     result = _execute_callable(context=context, **execute_callable_kwargs)
@@ -25,10 +25,10 @@ Traceback (most recent call last):
     self._hook.submit(self.application)
   File "/home/wgeesey/airflow/lib/python3.12/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 560, in submit
     raise AirflowException(
-airflow.exceptions.AirflowException: Cannot execute: spark-submit --master local[*] --name arrow-spark --deploy-mode client home/airflow/dags/spark_jobs/transform_orders.py --input_path ~/airflow/data/staging/orders.csv --output_path s3a://my-first-s3-data-lake/WWI/. Error code is: 2.
-[2026-02-16, 17:15:47 UTC] {logging_mixin.py:190} INFO - Task instance in failure state
-[2026-02-16, 17:15:47 UTC] {logging_mixin.py:190} INFO - Task start:2026-02-16 17:15:44.622610+00:00 end:2026-02-16 17:15:47.130291+00:00 duration:2.507681
-[2026-02-16, 17:15:47 UTC] {logging_mixin.py:190} INFO - Task:<Task(SparkSubmitOperator): spark_transform_orders> dag:<DAG: mssql_extract_test> dagrun:<DagRun mssql_extract_test @ 2026-02-09 20:01:46+00:00: manual__2026-02-09T20:01:46+00:00, state:running, queued_at: 2026-02-16 17:15:42.181107+00:00. externally triggered: True>
-[2026-02-16, 17:15:47 UTC] {logging_mixin.py:190} INFO - Failure caused by Cannot execute: spark-submit --master local[*] --name arrow-spark --deploy-mode client home/airflow/dags/spark_jobs/transform_orders.py --input_path ~/airflow/data/staging/orders.csv --output_path s3a://my-first-s3-data-lake/WWI/. Error code is: 2.
-[2026-02-16, 17:15:47 UTC] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=mssql_extract_test, task_id=spark_transform_orders, run_id=manual__2026-02-09T20:01:46+00:00, execution_date=20260209T200146, start_date=20260216T171544, end_date=20260216T171547
-[2026-02-16, 17:15:47 UTC] {taskinstance.py:340} ▶ Post task execution logs
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master local[*] --name arrow-spark --deploy-mode client /home/airflow/dags/spark_jobs/transform_orders.py --input_path ~/airflow/data/staging/orders.csv --output_path s3a://my-first-s3-data-lake/WWI/. Error code is: 2.
+[2026-02-16, 17:18:47 UTC] {logging_mixin.py:190} INFO - Task instance in failure state
+[2026-02-16, 17:18:47 UTC] {logging_mixin.py:190} INFO - Task start:2026-02-16 17:18:45.136160+00:00 end:2026-02-16 17:18:47.622948+00:00 duration:2.486788
+[2026-02-16, 17:18:47 UTC] {logging_mixin.py:190} INFO - Task:<Task(SparkSubmitOperator): spark_transform_orders> dag:<DAG: mssql_extract_test> dagrun:<DagRun mssql_extract_test @ 2026-02-09 20:01:46+00:00: manual__2026-02-09T20:01:46+00:00, state:running, queued_at: 2026-02-16 17:18:39.043088+00:00. externally triggered: True>
+[2026-02-16, 17:18:47 UTC] {logging_mixin.py:190} INFO - Failure caused by Cannot execute: spark-submit --master local[*] --name arrow-spark --deploy-mode client /home/airflow/dags/spark_jobs/transform_orders.py --input_path ~/airflow/data/staging/orders.csv --output_path s3a://my-first-s3-data-lake/WWI/. Error code is: 2.
+[2026-02-16, 17:18:47 UTC] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=mssql_extract_test, task_id=spark_transform_orders, run_id=manual__2026-02-09T20:01:46+00:00, execution_date=20260209T200146, start_date=20260216T171845, end_date=20260216T171847
+[2026-02-16, 17:18:47 UTC] {taskinstance.py:340} ▶ Post task execution logs
