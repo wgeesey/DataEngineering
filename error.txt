@@ -1,6 +1,0 @@
-/opt/spark/bin/spark-submit \
-  --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem \
-  --conf spark.hadoop.fs.s3a.aws.credentials.provider=com.amazonaws.auth.DefaultAWSCredentialsProviderChain \
-  your_spark_job.py \
-  --input_path s3a://my-first-data-lake/raw/customer_reviews.csv \
-  --output_path s3a://my-first-data-lake/processed/reviews/
