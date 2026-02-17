@@ -9,8 +9,8 @@ import os
 import csv
 SPARK_HOME = os.environ['SPARK_HOME']
 S3_BUCKET = "my-first-s3-data-lake"
-S3_RAW = "WWI/raw/orders/order_{{ ds_nodash }}.csv"
-S3_PARQUET = "WWI/analytics/orders/"
+S3_RAW_KEY = "WWI/raw/orders/order_{{ ds_nodash }}.csv"
+S3_PARQUET_KEY = "WWI/analytics/orders/"
 
 @dag(
     dag_id="mssql_extract_test2",
@@ -55,28 +55,29 @@ def mssql_extract_dag2():
 
     extract_task = extract_order()
     
-    push_to_S3 = LocalFilesystemToS3Operator(
+    upload_to_S3 = LocalFilesystemToS3Operator(
         task_id="upload_csv_to_s3",
-        filename=extract_task,
-        dest_key = S3_RAW,
+        filename="{{ task_instance.xcom_pull(task_ids='extract_order') }}",
+        dest_key = S3_RAW_KEY,
         dest_bucket = S3_BUCKET,
         aws_conn_id="aws_default",
         replace=True,
     
     )
     
-    spark_Transform = SparkSubmitOperator(
-        task_id="csv_to_S3",
+    spark_transform = SparkSubmitOperator(
+        task_id="csv_to_parquet",
         application="/home/wgeesey/airflow/dags/spark_jobs/transform_orders2.py",
         conn_id="spark_default",
         application_args=[
             "--input_path", f"s3a://{S3_BUCKET}/{S3_RAW}",
-            "--output_path", f"s3a://{S3_BUCKET}/{S3_PARQUET}"
+            "--output_path", f"s3a://{S3_BUCKET}/{S3_PARQUET_KEY}"
         ],
         jars="/opt/spark/jars/hadoop-aws-3.3.4.jar,/opt/spark/jars/aws-java-sdk-bundle-1.12.550.jar",
+        template_fields=["application_args"],
     )
 
-    extract_task >> push_to_S3 >> spark_Transform
+    extract_task >> upload_to_S3 >> spark_transform
 
 dag = mssql_extract_dag2()
 
