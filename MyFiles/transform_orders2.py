@@ -19,11 +19,11 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 conf = spark._jsc.hadoopConfiguration()
-print(conf.get("fs.s3a.connection.timeout"))  # returns a string, but should be '60000'
-print(conf.get("fs.s3a.connection.establish.timeout"))
-print(conf.get("fs.s3a.retry.interval"))
+conf.set("fs.s3a.connection.timeout", "60000")
+conf.set("fs.s3a.connection.establish.timeout", "60000")
+conf.set("fs.s3a.retry.interval", "5000")
 
-
+# Read CSV
 try:
     print("Reading CSV from:", args.input_path)
     df = spark.read.csv(args.input_path, header=True, inferSchema=True)
@@ -32,16 +32,17 @@ except Exception as e:
     print("Error reading CSV:", str(e))
     spark.stop()
     raise
+
+# Transform
 try:
-    df_transformed = (
-    df \
-        .withColumn("order_year", year("order_date")) \
-        .withColumn("order_month", month("order_month"))
-    )   
+    df_transformed = df.withColumn("order_year", year(col("order_date"))) \
+    .withColumn("order_month", month(col("order_date")))
 except Exception as e:
     print("Error partitioning columns:", str(e))
     spark.stop()
     raise
+
+# Write Parquet
 try:
     print("Writing Parquet to:", args.output_path)
     df_transformed.write \
@@ -54,3 +55,4 @@ except Exception as e:
     raise
 
 print("Transformation Complete")
+spark.stop()
