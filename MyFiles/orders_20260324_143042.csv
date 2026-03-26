@@ -1,0 +1,16 @@
+OrderID,OrderDate,CustomerName,StockItemID,Quantity,UnitPrice
+73540,2016-05-31,Dominic Davignon,189,208,2.9
+73540,2016-05-31,Dominic Davignon,82,120,18.0
+73540,2016-05-31,Dominic Davignon,176,7,240.0
+73540,2016-05-31,Dominic Davignon,109,2,25.0
+73540,2016-05-31,Dominic Davignon,198,120,4.1
+73537,2016-05-31,Geza Roman,49,9,13.0
+73537,2016-05-31,Geza Roman,67,8,230.0
+73537,2016-05-31,Geza Roman,207,60,2.7
+73537,2016-05-31,Geza Roman,142,12,18.0
+73526,2016-05-31,Baalaamjali Devulapalli,90,60,18.0
+73526,2016-05-31,Baalaamjali Devulapalli,30,8,13.0
+73520,2016-05-31,Ana Florea,207,108,2.7
+73520,2016-05-31,Ana Florea,91,84,18.0
+73520,2016-05-31,Ana Florea,207,108,2.7
+73520,2016-05-31,Ana Florea,91,84,18.0
