@@ -1,8 +1,8 @@
 # Used in Jupyter to verify what was in the csv.
-import pandas as pd
-df = pd.read_csv('/content/orders_20260324_143042.csv')
-df.head(5)
-df.dtypes
+#import pandas as pd
+#df = pd.read_csv('/content/orders_20260324_143042.csv')
+#df.head(5)
+#df.dtypes
 
 
 # transform.py
